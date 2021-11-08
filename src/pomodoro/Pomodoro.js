@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import useInterval from "../utils/useInterval";
 import Control from "./Control";
 import Current from "./Current";
+import Buttons from "./Buttons";
 
 // These functions are defined outside of the component to insure they do not have access to state
 // and are, therefore more likely to be pure.
@@ -101,80 +102,13 @@ function Pomodoro() {
   return (
     <div className="pomodoro">
       <div className="row">
-        <div className="col">
-          <div className="input-group input-group-lg mb-2">
-            <span className="input-group-text" data-testid="duration-focus">
-              {/* TODO: Update this text to display the current focus session duration */}
-              Focus Duration:{" "}
-              {focusDuration === 5
-                ? `0${focusDuration}:00`
-                : focusDuration + ":00"}
-            </span>
-            <div className="input-group-append">
-              {/* TODO: Implement decreasing focus duration and disable during a focus or break session */}
-              <button
-                onClick={() =>
-                  focusDuration > 5 && setfocusDuration(focusDuration - 5)
-                }
-                disabled={session}
-                type="button"
-                className="btn btn-secondary"
-                data-testid="decrease-focus"
-              >
-                <span className="oi oi-minus" />
-              </button>
-              {/* TODO: Implement increasing focus duration  and disable during a focus or break session */}
-              <button
-                disabled={session}
-                onClick={() =>
-                  focusDuration < 60 && setfocusDuration(focusDuration + 5)
-                }
-                type="button"
-                className="btn btn-secondary"
-                data-testid="increase-focus"
-              >
-                <span className="oi oi-plus" />
-              </button>
-            </div>
-          </div>
-        </div>
-        <div className="col">
-          <div className="float-right">
-            <div className="input-group input-group-lg mb-2">
-              <span className="input-group-text" data-testid="duration-break">
-                {/* TODO: Update this text to display the current break session duration */}
-                Break Duration:{" "}
-                {breakDuration < 10 ? `0${breakDuration}` : breakDuration}:00
-              </span>
-              <div className="input-group-append">
-                {/* TODO: Implement decreasing break duration and disable during a focus or break session*/}
-                <button
-                  disabled={session}
-                  onClick={() =>
-                    breakDuration > 1 && setbreakDuration(breakDuration - 1)
-                  }
-                  type="button"
-                  className="btn btn-secondary"
-                  data-testid="decrease-break"
-                >
-                  <span className="oi oi-minus" />
-                </button>
-                {/* TODO: Implement increasing break duration and disable during a focus or break session*/}
-                <button
-                  disabled={session}
-                  onClick={() =>
-                    breakDuration < 15 && setbreakDuration(breakDuration + 1)
-                  }
-                  type="button"
-                  className="btn btn-secondary"
-                  data-testid="increase-break"
-                >
-                  <span className="oi oi-plus" />
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
+        <Buttons
+    setfocusDuration={setfocusDuration}
+setbreakDuration={setbreakDuration}
+session={session}
+breakDuration={breakDuration}
+focusDuration={focusDuration}
+  }/>
       </div>
       <div className="row">
         <Control
