@@ -2,8 +2,10 @@ import React from "react";
 import ProgressBar from "./ProgressBar";
 
 const Current = ({ session, focusDuration, breakDuration }) => {
-  if (session) {
-    return (
+  if (!session) {
+    return null;
+  }
+  return (
       <>
         <div className="row mb-2">
           <div className="col">
@@ -36,8 +38,5 @@ const Current = ({ session, focusDuration, breakDuration }) => {
         </div>
       </>
     );
-  }else {
-      return null
-  }
 };
 export default Current;
