@@ -22,7 +22,7 @@ const Buttons = ({
             {/* TODO: Implement decreasing focus duration and disable during a focus or break session */}
             <button
               onClick={() =>
-                focusDuration > 5 && setfocusDuration(focusDuration - 5)
+                focusDuration > 5 && setfocusDuration((focusDuration) => focusDuration - 5)
               }
               disabled={session}
               type="button"
@@ -35,7 +35,7 @@ const Buttons = ({
             <button
               disabled={session}
               onClick={() =>
-                focusDuration < 60 && setfocusDuration(focusDuration + 5)
+                focusDuration < 60 && setfocusDuration((focusDuration) => focusDuration + 5)
               }
               type="button"
               className="btn btn-secondary"
@@ -62,7 +62,7 @@ const Buttons = ({
               <button
                 disabled={session}
                 onClick={() =>
-                  breakDuration > 1 && setbreakDuration(breakDuration - 1)
+                  breakDuration > 1 && setbreakDuration((breakDuration) => breakDuration - 1)
                 }
                 type="button"
                 className="btn btn-secondary"
@@ -74,7 +74,7 @@ const Buttons = ({
               <button
                 disabled={session}
                 onClick={() =>
-                  breakDuration < 15 && setbreakDuration(breakDuration + 1)
+                  breakDuration < 15 && setbreakDuration((breakDuration) => breakDuration + 1)
                 }
                 type="button"
                 className="btn btn-secondary"
