@@ -2,7 +2,7 @@ import React from "react";
 
 const ProgressBar= ({session,breakDuration,focusDuration})=> {
     function calcWidth(){
-        return Math.abs(
+        return (Math.abs(
                     (session.label === "Focusing"
                       ? focusDuration
                       : breakDuration) *
@@ -12,8 +12,8 @@ const ProgressBar= ({session,breakDuration,focusDuration})=> {
                     ((session.label === "Focusing"
                       ? focusDuration
                       : breakDuration) *
-                      60)) *
-                  100
+                      60) *
+                  100);
     }
     return (
       <div className="col">
