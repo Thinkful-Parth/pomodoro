@@ -34,8 +34,8 @@ session}
           {/* TODO: Disable the stop button when there is no active session */}
           <button
             onClick={() => {
-              setIsTimerRunning((isTimerRunning) => null);
-              setSession((session)=> null);
+              setIsTimerRunning(null);
+              setSession(null);
             }}
             type="button"
             className="btn btn-secondary"
