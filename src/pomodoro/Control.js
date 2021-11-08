@@ -1,11 +1,5 @@
 import React from "react";
-  
 import classNames from "../utils/class-names";
-  
-  
-  
-  
-  
   
 const Control =(
     {playPause,
@@ -40,8 +34,8 @@ session}
           {/* TODO: Disable the stop button when there is no active session */}
           <button
             onClick={() => {
-              setIsTimerRunning(null);
-              setSession(null);
+              setIsTimerRunning((isTimerRunning) => null);
+              setSession((session)=> null);
             }}
             type="button"
             className="btn btn-secondary"
