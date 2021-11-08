@@ -108,7 +108,7 @@ setbreakDuration={setbreakDuration}
 session={session}
 breakDuration={breakDuration}
 focusDuration={focusDuration}
-  }/>
+  />
       </div>
       <div className="row">
         <Control
